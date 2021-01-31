@@ -1,0 +1,9 @@
+.link {
+  text-decoration: none;
+  transition: all 1s;
+}
+
+.link:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}

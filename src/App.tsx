@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Route } from "react-router-dom";
+import SimpleCard from './components/Card/'
 import './App.css';
+import { request } from './helpers/api'
+import { ICard } from './helpers/type'
 
-function App() {
+const App:React.FC = () => {
+  const [books, getBooks] = useState<ICard[]>([])
+
+  useEffect(() => {
+    request.then(response => getBooks(response))
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Route path="/">
+      <div className="App">
+        <article className="wrapper">
+        {books.map(book => <SimpleCard book={book} key={Math.random()}/>)}
+      </article>
+      </div>
+    </Route>
+  )
 }
 
 export default App;

@@ -1,0 +1,21 @@
+.character {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.character_info {
+  display: none;
+  border: 1px solid rgb(161, 157, 157);
+  padding: 5px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.character:hover > .character_info {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 140px;
+  top: -45px;
+}
