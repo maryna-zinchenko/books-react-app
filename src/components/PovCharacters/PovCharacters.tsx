@@ -9,12 +9,12 @@ interface CharProps {
 
 export const PovCharacters: React.FC<CharProps> = ({ url }) => {
    const [character, setCharacter]: any = useState([])
-   const [loading, setLoad]: any = useState(true)
+   const [loading, setLoading]: any = useState(true)
 
   useEffect(() => {
       requestCharacters(url)
       .then(response => setCharacter(response))
-      .then(() => setLoad(false))
+      .then(() => setLoading(false))
   }, [url]);
 
   console.log(character)

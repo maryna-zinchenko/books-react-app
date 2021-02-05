@@ -7,4 +7,5 @@ export interface ICard {
   country: string,
   mediaType: string,
   released: string,
+  isbn: string,
 }

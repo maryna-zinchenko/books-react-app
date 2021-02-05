@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { ICard } from '../../helpers/type'
 import { useStyles } from './styles';
-import PovCharacters from './..//PovCharacters'
+import PovCharacters from '.././PovCharacters'
 
 type DetailsProps = {
   book: ICard,
@@ -15,11 +15,11 @@ type DetailsProps = {
 
 export const CardDetails: React.FC<DetailsProps> = ({ book }) => {
   const classes = useStyles();
-  const [list, setList] = useState(false)
+  const [ isListVisible, setIsListVisible] = useState(false)
   const chars = book.povCharacters;
 
   const handleClick = () => {
-    setList(!list)
+    setIsListVisible(! isListVisible)
   }
  
   return (
@@ -55,9 +55,7 @@ export const CardDetails: React.FC<DetailsProps> = ({ book }) => {
           </Button>
         </CardActions>
         <div>
-          {list 
-            ? chars.map((url: string) => <PovCharacters url={url}/>) 
-            : ''}
+          { isListVisible && chars.map((url: string) => <PovCharacters url={url}/>)}
         </div>
       </Card>
       <Link to="/" className="link_home">
